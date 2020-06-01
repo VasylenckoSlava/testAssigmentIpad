@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Bariol-Bold.otf",
+      "sha1": "248bd1d518ea90c836d7f49e3a8f5601ca809e64"
+    },
+    {
+      "path": "src/assets/fonts/Bariol_Regular.otf",
+      "sha1": "c69513fe3d02aed62f5d4bf875dcf7fe51dcba3c"
+    },
+    {
+      "path": "src/assets/fonts/bold_pw.ttf",
+      "sha1": "0c4a913e91caa126c5ef160095640aca5a42e841"
+    }
+  ]
+}
