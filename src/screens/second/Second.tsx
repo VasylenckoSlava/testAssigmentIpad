@@ -61,7 +61,18 @@ class Second extends Component<any, SecondCardProps> {
   };
 
   onDeleteNumber = () => {
-    console.log('delete number');
+    console.log('delete picture');
+    const newArray = [...this.state.valueArray];
+    newArray.splice(
+      newArray.findIndex((ele) => ele.id === id),
+      1,
+    );
+
+    this.setState(() => {
+      return {
+        valueArray: newArray,
+      };
+    });
   };
 
   render() {
