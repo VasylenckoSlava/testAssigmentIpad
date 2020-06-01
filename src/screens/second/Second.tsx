@@ -41,20 +41,33 @@ class Second extends Component<any, SecondCardProps> {
   state = {
     initialValue: 1,
     total: 2,
-    valueArray: [],
+    valueArray: [1],
   };
   onPressButton = () => {
     console.log('click');
   };
+  componentDidMount() {
+    console.log('initial', this.state.initialValue);
+  }
+  componentDidUpdate(
+    prevProps: Readonly<any>,
+    prevState: Readonly<SecondCardProps>,
+    snapshot?: any,
+  ) {
+    if (this.state.initialValue !== prevState.initialValue) {
+      this.setState({
+        total: this.state.initialValue * 2,
+      });
+    }
+  }
 
-  onAddNumber = () => {
+  onAddNumber = async () => {
     const {initialValue, valueArray} = this.state;
-    if (initialValue > 5) {
+    if (initialValue >= 5) {
       alert('not allow');
     } else {
-      this.setState({
+      await this.setState({
         initialValue: initialValue + 1,
-        total: initialValue * 2,
         valueArray: [...valueArray, +valueArray + 1],
       });
     }
@@ -77,6 +90,8 @@ class Second extends Component<any, SecondCardProps> {
 
   render() {
     const {initialValue, total, valueArray} = this.state;
+    console.log('initialValue', initialValue);
+    console.log('total', total);
     return (
       <BackGroundWrapper>
         <DescriptionBlock
