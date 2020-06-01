@@ -90,8 +90,7 @@ class Second extends Component<any, SecondCardProps> {
 
   render() {
     const {initialValue, total, valueArray} = this.state;
-    console.log('initialValue', initialValue);
-    console.log('total', total);
+
     return (
       <BackGroundWrapper>
         <DescriptionBlock
@@ -109,9 +108,11 @@ class Second extends Component<any, SecondCardProps> {
         <Divider />
         <View style={styles.wrapper}>
           <Rectangle
-            onPress={this.onAddNumber}
+            onPressAdd={this.onAddNumber}
+            onPressRemove={this.onDeleteNumber}
             character={initialValue}
-            arows
+            arowsUp
+            arowsDown
           />
           <ExpressionBlock text={'×'} />
           <Rectangle character={2} style={styles.primaryColor} />

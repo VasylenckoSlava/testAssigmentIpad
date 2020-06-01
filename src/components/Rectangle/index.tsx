@@ -4,16 +4,16 @@ import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 // assets
 import {colors, fonts, mergeStyles} from '../../style';
 import arrow from '../../assets/arowsExpression.png';
+import arrowDown from '../../assets/arrowDown.png';
 
 const Rectangle = (props) => {
   return (
-    <View>
-      {props.arows && (
-        <TouchableOpacity onPress={props.onPress}  style={{position: 'absolute', bottom: 130, left: 45}}>
-          <Image
-            source={arrow}
-
-          />
+    <View style={styles.wrapper}>
+      {props.arowsUp && (
+        <TouchableOpacity
+          onPress={props.onPressAdd}
+          style={styles.styleImageContainer}>
+          <Image source={arrow} />
         </TouchableOpacity>
       )}
       <View
@@ -29,11 +29,17 @@ const Rectangle = (props) => {
           </Text>
         </View>
       </View>
+      {props.arowsDown && (
+        <TouchableOpacity onPress={props.onPressRemove} style={{padding: 10}}>
+          <Image source={arrowDown} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {justifyContent: 'center', alignItems: 'center'},
   mainContainer: {
     width: 120,
     height: 120,
@@ -68,6 +74,9 @@ const styles = StyleSheet.create({
     fontSize: 120,
     textAlign: 'center',
     color: colors.tooltipTextColor,
+  },
+  styleImageContainer: {
+    padding: 10,
   },
 });
 
